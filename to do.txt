@@ -1,0 +1,198 @@
+1. What is React.js? javascipt library  ->that can convert javscript to html  in web browser & display in  UI as user need (We can include both html & javscipt in same page )Bond.jsx
+
+2. What is a component in React?  Reusauble of code
+
+3. What is JSX? javascript to html & display in UI in screen
+
+4. What is the difference between a React component and a normal JavaScript function?  
+
+5. What are props? pass data from parent component to child
+
+6. Can a child component modify props directly? Why? No ,, Parent create function & pass to child ..child Use it  
+
+useState
+
+7. What is useState()? create state varible & instiazle
+
+8. What does this mean?
+
+const [bondName, setBondName] = useState("");  bondName  -Curernt bond value  setBondName -update existing state value  -   useState()? create state varible & instialize
+
+9. What is the purpose of setBondName()? update existing state value    & can set up in input field value
+
+10. Why do we use useState([]) for a bond list? 
+
+Controlled Forms & Events
+
+11. What is a controlled input in React?
+
+Explain:
+
+<input
+    value={bondName}
+    onChange={(e) => setBondName(e.target.value)}
+/>
+
+12. What does e.target.value mean?
+
+13. Why do we use e.preventDefault() in form submission?
+
+14. What is event handling in React?
+
+useEffect
+
+15. What is useEffect() used for?
+
+16. Why do we use useEffect() to fetch existing bond details when the Edit page opens?
+
+17. What does [] mean here?
+
+useEffect(() => {
+    getBonds();
+}, []);
+
+18. Does useEffect() render the component?
+
+API / Fetch
+
+19. How do you call a Laravel API from React?
+
+20. What is the purpose of fetch()?
+
+21. What is the difference between response.json() and JSON.stringify()?
+
+22. Explain this:
+
+body: JSON.stringify(bondData)
+
+23. What is a request body?
+
+24. What is the difference between a request and a response?
+
+CRUD
+
+25. What HTTP method do you use to create a bond? post
+
+26. What HTTP method do you use to get bonds?get
+
+27. What HTTP method do you use to update a bond?
+put
+28. What HTTP method do you use to delete a bond?delete
+
+29. Explain the complete flow when adding a bond from React to Laravel.
+
+Example:
+
+React Form
+   ↓
+fetch()
+   ↓
+Laravel Route
+   ↓
+Controller
+   ↓
+Database
+   ↓
+JSON Response
+   ↓
+React
+
+30. Explain the complete flow when editing a bond. 
+
+Lists & Keys
+
+31. Why do we use .map() when displaying bonds?
+
+bonds.map((bond) => ...)
+
+32. Why do we use key={bond.id}?
+
+33. Why should the key be unique?
+
+Conditional Rendering
+
+34. What does this do?
+
+if (loading) {
+    return <p>Loading...</p>;
+}
+
+35. Explain this:
+
+bonds.length > 0
+    ? bonds.map(...)
+    : <p>No bonds found</p>
+React Router
+
+36. What is React Router?
+
+37. What is useNavigate()?
+
+38. What is useParams()?
+
+39. Explain this route:
+
+<Route
+    path="/bonds/edit/:bondId"
+    element={<EditBond />}
+/>
+
+40. If the URL is:
+
+/bonds/edit/5
+
+What will this return?
+
+const { bondId } = useParams();
+
+41. What does this do?
+
+navigate(`/bonds/edit/${bond.id}`);
+
+42. What is the difference between:
+
+/bonds/edit/5
+
+and
+
+/api/bonds/5
+Laravel + React
+
+43. Does React Router directly call the Laravel controller?
+
+44. Where is the React route declared?
+
+45. Where is the Laravel API route declared?
+
+46. Explain this complete Edit flow:
+
+/bonds/edit/5
+        ↓
+React Router
+        ↓
+EditBond.jsx
+        ↓
+useParams()
+        ↓
+bondId = 5
+        ↓
+fetch("/api/bonds/5")
+        ↓
+Laravel Route
+        ↓
+Controller
+        ↓
+Database
+Practical Interview Questions
+
+47. What is the difference between loading and saving in an Edit page?
+
+48. Why do we use setBonds(data) after getting the API response?
+
+49. After deleting a bond, why might we use:
+
+setBonds(
+    bonds.filter((bond) => bond.id !== bondId)
+);
+
+50. Why do we use async/await with API calls?  asynchrous work fetch api calls if.setLaoding(true) -
